@@ -572,7 +572,7 @@ async function hydratePublicContent() {
         if (!card) continue;
         card.hidden = service.status === 'DISABLED' || !service.visible;
         card.dataset.status = service.status;
-        const destination = typeof service.endpoint === 'string' && service.endpoint.startsWith('/') && !service.endpoint.startsWith('//') ? service.endpoint : '#registration';
+        const destination = service.key === 'codelab' ? 'https://asrvone-codelab.vercel.app' : typeof service.endpoint === 'string' && service.endpoint.startsWith('/') && !service.endpoint.startsWith('//') ? service.endpoint : '#registration';
         card.setAttribute('href', service.status === 'ACTIVE' ? destination : '#registration');
         const heading = card.querySelector('h3');
         const description = card.querySelector('p');

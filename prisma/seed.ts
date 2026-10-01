@@ -51,7 +51,7 @@ const homeSections = [
 
 const services = [
   { key: "learning", name: "ASRVOne Learning", description: "Learn concepts with clarity, then make them your own through deliberate practice.", endpoint: "/learn", ctaText: "Explore learning", status: "ACTIVE", sortOrder: 0 },
-  { key: "codelab", name: "ASRVOne CodeLab", description: "Try a focused Java problem and follow the reasoning behind its solution.", endpoint: "/#practice", ctaText: "Open CodeLab", status: "ACTIVE", sortOrder: 1 },
+  { key: "codelab", name: "ASRVOne CodeLab", description: "Try a focused Java problem and follow the reasoning behind its solution.", endpoint: "https://asrvone-codelab.vercel.app", ctaText: "Open CodeLab", status: "ACTIVE", sortOrder: 1 },
   { key: "community", name: "ASRVOne Community", description: "Ask without hesitation, learn without ego, and help others when you can.", endpoint: "/community", ctaText: "Enter the community", status: "ACTIVE", sortOrder: 2 },
   { key: "live", name: "ASRVOne Live", description: "Find scheduled sessions and class details for your enrolled batch.", endpoint: "/live", ctaText: "View sessions", status: "ACTIVE", sortOrder: 3 },
   { key: "resources", name: "ASRVOne Resources", description: "Access learning material shared with your course and batch.", endpoint: "/resources", ctaText: "Open resources", status: "ACTIVE", sortOrder: 4 },
