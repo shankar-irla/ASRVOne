@@ -12,7 +12,12 @@ export async function GET() {
     const actor = await getActor();
     if (!actor) throw new HttpError(401, "Sign in to see mentorship availability.", "AUTHENTICATION_REQUIRED");
     const [slots, appointments] = await Promise.all([
-      getDb().availabilitySlot.findMany({ where: { isAvailable: true, startsAt: { gt: new Date() }, mentor: { status: "ACTIVE", mentorProfile: { visible: true } } }, include: { mentor: { include: { profile: { select: { displayName: true } }, mentorProfile: { select: { title: true } } } }, orderBy: { startsAt: "asc" }, take: 40 }),
+      getDb().availabilitySlot.findMany({
+        where: { isAvailable: true, startsAt: { gt: new Date() }, mentor: { status: "ACTIVE", mentorProfile: { visible: true } } },
+        include: { mentor: { include: { profile: { select: { displayName: true } }, mentorProfile: { select: { title: true } } } } },
+        orderBy: { startsAt: "asc" },
+        take: 40,
+      }),
       getDb().appointment.findMany({ where: actor.permissions.has("MANAGE_APPOINTMENTS") ? { mentorId: actor.id, startsAt: { gte: new Date() } } : { requesterId: actor.id, startsAt: { gte: new Date() } }, include: { mentor: { include: { profile: { select: { displayName: true } } } } }, orderBy: { startsAt: "asc" }, take: 20 }),
     ]);
     return NextResponse.json({ slots: slots.map((slot) => ({ id: slot.id, startsAt: slot.startsAt, endsAt: slot.endsAt, appointmentType: slot.appointmentType, mentorName: slot.mentor.profile?.displayName || "ASRVOne mentor", mentorTitle: slot.mentor.mentorProfile?.title || "Mentor" })), appointments: appointments.map((item) => ({ id: item.id, title: item.title, notes: item.notes, startsAt: item.startsAt, endsAt: item.endsAt, status: item.status, meetUrl: item.meetUrl, mentor: item.mentor.profile?.displayName || "ASRVOne mentor" })) });

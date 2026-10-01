@@ -7,7 +7,21 @@ export const dynamic = "force-dynamic";
 
 export default async function CoursePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const course = await getDb().course.findFirst({ where: { slug, status: "PUBLISHED" }, include: { modules: { orderBy: { sortOrder: "asc" }, include: { lessons: { where: { published: true }, orderBy: { sortOrder: "asc" }, select: { id: true, title: true, summary: true, content: true, durationMins: true } } } } });
+  const course = await getDb().course.findFirst({
+    where: { slug, status: "PUBLISHED" },
+    include: {
+      modules: {
+        orderBy: { sortOrder: "asc" },
+        include: {
+          lessons: {
+            where: { published: true },
+            orderBy: { sortOrder: "asc" },
+            select: { id: true, title: true, summary: true, content: true, durationMins: true },
+          },
+        },
+      },
+    },
+  });
   if (!course) notFound();
   const actor = await getActor();
   const enrollment = actor ? await getDb().enrollment.findFirst({ where: { userId: actor.id, courseId: course.id }, select: { id: true } }) : null;
