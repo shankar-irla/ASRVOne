@@ -1,0 +1,54 @@
+:root { color-scheme: dark; }
+.platform-page { min-height: 100vh; background: #080909; color: #f4f1e8; }
+.auth-page { position: relative; min-height: 100vh; padding: 1px 18px 48px; background: #fffaf0; color: #17313b; color-scheme: light; }
+.auth-controls { position: absolute; top: 26px; left: 50%; display: flex; width: min(100% - 36px, 980px); align-items: center; justify-content: space-between; gap: 18px; transform: translateX(-50%); }
+.auth-brand { color: #17313b; font: 700 23px/1 Outfit, 'Avenir Next', sans-serif; text-decoration: none; }
+.auth-brand em { margin-left: 2px; color: #e96742; font: italic 600 24px/1 Georgia, serif; }
+.platform-panel { width: min(100% - 36px, 980px); margin: 0 auto; padding: 125px 0 90px; }
+.platform-panel.narrow { max-width: 600px; }
+.auth-page .platform-panel { padding-top: 142px; }
+.auth-page .platform-panel.narrow { max-width: 520px; }
+.platform-eyebrow { color: #c25b37; font: 700 10px/1.5 'DM Sans', 'Segoe UI', sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.auth-page .platform-panel h1 { max-width: 550px; margin: 16px 0 12px; color: #17313b; font: 700 clamp(38px,7vw,58px)/1.02 Outfit, 'Avenir Next', sans-serif; letter-spacing: 0; }
+.auth-page .platform-panel h1 em { color: #dc6844; font-weight: 600; }
+.platform-lede { max-width: 540px; color: #647472; font: 16px/1.6 'DM Sans', 'Segoe UI', sans-serif; }
+.auth-page .platform-card { margin-top: 27px; padding: 27px; border: 1px solid rgba(23,49,59,.13); border-radius: 7px; background: #fffdf7; box-shadow: 0 18px 45px rgba(23,49,59,.1); }
+.platform-form { display: grid; gap: 17px; }
+.platform-form label { display: grid; gap: 8px; color: #324e54; font: 700 11px/1.45 'DM Sans', 'Segoe UI', sans-serif; letter-spacing: .02em; text-transform: none; }
+.platform-form input,.platform-form textarea,.platform-form select { width: 100%; min-height: 48px; padding: 11px 13px; border: 1px solid rgba(23,49,59,.22); border-radius: 4px; background: #fff; color: #17313b; font: 15px/1.5 'DM Sans', 'Segoe UI', sans-serif; letter-spacing: normal; text-transform: none; transition: border-color .18s ease, box-shadow .18s ease; }
+.platform-form input:focus,.platform-form textarea:focus,.platform-form select:focus { border-color: #e96742; outline: 0; box-shadow: 0 0 0 3px rgba(233,103,66,.15); }
+.platform-form label small { color: #647472; font: 12px/1.5 'DM Sans', 'Segoe UI', sans-serif; letter-spacing: 0; text-transform: none; }
+.platform-button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 12px; margin-top: 5px; padding: 0 18px; border: 1px solid #e96742; border-radius: 4px; background: #e96742; color: #fffdf7; cursor: pointer; font: 700 12px/1 'DM Sans', 'Segoe UI', sans-serif; letter-spacing: .02em; transition: background .18s ease, transform .18s ease; }
+.platform-button:hover { background: #d95534; transform: translateY(-1px); }
+.platform-button:disabled { cursor: wait; opacity: .65; }
+.platform-message { margin: 0; color: #336c58; font: 13px/1.6 'DM Sans', 'Segoe UI', sans-serif; }
+.platform-message:empty { display: none; }
+.platform-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 18px; margin-top: 21px; color: #526967; font: 12px 'DM Sans', 'Segoe UI', sans-serif; }
+.platform-links a { text-decoration: underline; text-underline-offset: 4px; }
+.platform-links a:hover { color: #d95534; }
+.auth-page.theme-dark { background: #080909; color: #f4f1e8; color-scheme: dark; }
+.auth-page.theme-dark .auth-brand { color: #fbfaf5; }
+.auth-page.theme-dark .platform-eyebrow { color: #d5ad63; }
+.auth-page.theme-dark .platform-panel h1 { color: #fbfaf5; }
+.auth-page.theme-dark .platform-panel h1 em { color: #edd18c; }
+.auth-page.theme-dark .platform-lede { color: #bdb9ad; }
+.auth-page.theme-dark .platform-card { border-color: rgba(229,201,139,.25); background: #111210; box-shadow: 0 20px 55px rgba(0,0,0,.28); }
+.auth-page.theme-dark .platform-form label { color: #e4dfd2; }
+.auth-page.theme-dark .platform-form input, .auth-page.theme-dark .platform-form textarea, .auth-page.theme-dark .platform-form select { border-color: rgba(239,234,219,.25); background: #1b1d19; color: #fbfaf5; }
+.auth-page.theme-dark .platform-form input:focus, .auth-page.theme-dark .platform-form textarea:focus, .auth-page.theme-dark .platform-form select:focus { border-color: #edd18c; box-shadow: 0 0 0 3px rgba(237,209,140,.16); }
+.auth-page.theme-dark .platform-form label small { color: #aaa79d; }
+.auth-page.theme-dark .platform-button { border-color: #ddbd7a; background: #ddbd7a; color: #11120f; }
+.auth-page.theme-dark .platform-button:hover { background: #f0d28f; }
+.auth-page.theme-dark .platform-message { color: #b8d4b1; }
+.auth-page.theme-dark .platform-links { color: #e3c783; }
+.auth-page.theme-dark .platform-links a:hover { color: #fff1c3; }
+.dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 14px; margin-top: 40px; }
+.dashboard-tile { min-height: 150px; padding: 23px; border: 1px solid rgba(239,234,219,.18); background: rgba(255,255,255,.03); }
+.dashboard-tile h2 { margin: 0 0 13px; font: 23px Georgia,serif; }
+.dashboard-tile p { color: #aaa79d; font: 13px/1.7 Arial,sans-serif; }
+.dashboard-tile a { color: #e5c783; font: 11px ui-monospace,monospace; }
+.cms-editor { display: grid; gap: 14px; margin-top: 28px; }
+.cms-row { display: grid; grid-template-columns: minmax(140px,.6fr) minmax(0,1.4fr); gap: 18px; align-items: start; padding: 18px; border: 1px solid rgba(239,234,219,.18); }
+.cms-row h2 { margin: 0; font: 20px Georgia,serif; }
+.cms-row textarea { width: 100%; min-height: 88px; padding: 12px; border: 1px solid rgba(239,234,219,.2); background: #111210; color: #f4f1e8; font: 14px/1.6 Arial,sans-serif; }
+@media (max-width: 600px) { .platform-panel { padding-top: 105px; } .auth-page .platform-panel { padding-top: 126px; } .auth-page .platform-card { padding: 20px 17px; } .auth-controls { top: 19px; width: min(100% - 28px, 980px); } .auth-brand { font-size: 21px; } .auth-brand em { font-size: 22px; } .cms-row { grid-template-columns: 1fr; } }

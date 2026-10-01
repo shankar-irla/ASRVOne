@@ -1,0 +1,49 @@
+name: asrvone
+services:
+  database:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: asrvone
+      POSTGRES_USER: asrvone
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-local-development-only}
+    ports:
+      - "5432:5432"
+    volumes:
+      - asrvone-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U asrvone -d asrvone"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      database:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://asrvone:${POSTGRES_PASSWORD:-local-development-only}@database:5432/asrvone?schema=public
+      REALTIME_ORIGIN: ${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
+    ports:
+      - "3000:3000"
+
+  realtime:
+    build: .
+    restart: unless-stopped
+    command: ["npm", "run", "realtime"]
+    depends_on:
+      database:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://asrvone:${POSTGRES_PASSWORD:-local-development-only}@database:5432/asrvone?schema=public
+      REALTIME_PORT: 4180
+      REALTIME_ORIGIN: ${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
+    ports:
+      - "4180:4180"
+
+volumes:
+  asrvone-db:

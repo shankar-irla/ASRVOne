@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080909" />
+    <meta name="description" content="ASRVOne is a learning and mentorship community for people ready to turn curiosity into craft." />
+    <title>ASRVOne — Where curiosity becomes craft</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body class="platform-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+
+    <header class="site-header" id="top">
+      <a class="brand-lockup" href="#top" aria-label="ASRVOne home">
+        <span class="brand-crop" aria-hidden="true">
+          <img src="/legacy/assets/asrvone-logo-reference.png" alt="" />
+        </span>
+        <span class="brand-fallback"><strong>ASRV</strong><em>One</em></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span>
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="#story">Our story</a>
+        <a href="#academy">The academy</a>
+        <a href="#program">One to LeetCode</a>
+        <a href="#services">Ecosystem</a>
+        <a href="#values">Our values</a>
+        <a href="#founder">The founder</a>
+        <a class="nav-login" href="/login">Sign in</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.6 8.6 0 1 0 20.2 15.2Z" /></svg>
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.7" /><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></svg>
+      </button>
+      <a class="nav-cta" href="#registration">Register your interest <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="main">
+      <section class="hero" data-home-section="hero" aria-labelledby="hero-title">
+        <canvas class="sky-canvas" id="sky-canvas" aria-hidden="true"></canvas>
+        <div class="hero-grain" aria-hidden="true"></div>
+        <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+        <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> THE ASRVONE ACADEMY</p>
+            <h1 id="hero-title"><span>Come closer to</span><br /><span>the <em>life</em> you can build.</span></h1>
+            <p class="hero-intro">A question can change the direction of a life. Here, yours has room to become a skill, a craft, a future.</p>
+            <div class="hero-actions">
+              <a class="button button-light" href="#registration">Begin your registration <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="#program">Meet One to LeetCode <span aria-hidden="true">↓</span></a>
+            </div>
+            <p class="hero-note">ACTIVE <i>•</i> SHINE <i>•</i> RISE <i>•</i> VISION <i>•</i> ONE</p>
+          </div>
+
+          <div class="palace-wrap" aria-label="Original illustration of the ASRVOne palace academy">
+            <div class="palace-halo" aria-hidden="true"></div>
+            <div class="palace-scene" id="palace-scene">
+              <div class="palace-backlight" aria-hidden="true"></div>
+              <svg class="palace-svg" viewBox="0 0 960 720" role="img" aria-labelledby="palace-title palace-desc">
+                <title id="palace-title">ASRVOne Palace Academy</title>
+                <desc id="palace-desc">A luminous ivory academy with domes, arched windows, a golden doorway, and ASRVOne engraved above the entrance.</desc>
+                <defs>
+                  <linearGradient id="marble" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0" stop-color="#fffef8" />
+                    <stop offset=".42" stop-color="#e8e2d3" />
+                    <stop offset=".7" stop-color="#fffdf5" />
+                    <stop offset="1" stop-color="#b9b5ae" />
+                  </linearGradient>
+                  <linearGradient id="frontMarble" x1="0" x2="0.9" y1="0" y2="1">
+                    <stop offset="0" stop-color="#f9f6ee" />
+                    <stop offset=".48" stop-color="#d9d4ca" />
+                    <stop offset="1" stop-color="#f8f4e9" />
+                  </linearGradient>
+                  <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0" stop-color="#fff0ad" />
+                    <stop offset=".5" stop-color="#d6a94c" />
+                    <stop offset="1" stop-color="#8c632a" />
+                  </linearGradient>
+                  <radialGradient id="doorGlow">
+                    <stop offset="0" stop-color="#e9ba61" stop-opacity=".72" />
+                    <stop offset="1" stop-color="#c99036" stop-opacity="0" />
+                  </radialGradient>
+                  <filter id="palaceShadow" x="-30%" y="-30%" width="160%" height="180%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="11" />
+                    <feOffset dy="13" />
+                    <feComponentTransfer><feFuncA type="linear" slope=".38" /></feComponentTransfer>
+                    <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+                  </filter>
+                </defs>
+
+                <ellipse cx="488" cy="640" rx="365" ry="31" fill="#d9b56d" opacity=".16" />
+                <ellipse cx="486" cy="633" rx="300" ry="17" fill="#050606" opacity=".58" />
+
+                <!-- distant wings and their domed pavilions -->
+                <g class="palace-wing palace-wing-left" filter="url(#palaceShadow)">
+                  <path d="M136 420V349Q136 334 151 334H312V534H136Z" fill="url(#marble)" stroke="#fff9e9" stroke-width="2" />
+                  <path d="M126 347H323V363H126Z" fill="url(#frontMarble)" />
+                  <path d="M190 335C191 298 210 272 224 261C238 272 257 298 258 335Z" fill="url(#marble)" stroke="#fff8e6" stroke-width="2" />
+                  <path d="M215 263L224 245L233 263Z" fill="url(#gold)" />
+                  <path d="M168 402Q168 373 185 373Q202 373 202 402V473H168Z" fill="#171714" stroke="#bcae91" stroke-width="4" />
+                  <path d="M237 402Q237 373 254 373Q271 373 271 402V473H237Z" fill="#171714" stroke="#bcae91" stroke-width="4" />
+                  <path d="M155 480H298V490H155Z" fill="#a99e8a" />
+                  <path d="M150 492H304V505H150Z" fill="url(#marble)" />
+                </g>
+                <g class="palace-wing palace-wing-right" filter="url(#palaceShadow)">
+                  <path d="M647 334H809Q824 334 824 349V534H647Z" fill="url(#marble)" stroke="#fff9e9" stroke-width="2" />
+                  <path d="M636 347H833V363H636Z" fill="url(#frontMarble)" />
+                  <path d="M702 335C703 298 722 272 736 261C750 272 769 298 770 335Z" fill="url(#marble)" stroke="#fff8e6" stroke-width="2" />
+                  <path d="M727 263L736 245L745 263Z" fill="url(#gold)" />
+                  <path d="M678 402Q678 373 695 373Q712 373 712 402V473H678Z" fill="#171714" stroke="#bcae91" stroke-width="4" />
+                  <path d="M747 402Q747 373 764 373Q781 373 781 402V473H747Z" fill="#171714" stroke="#bcae91" stroke-width="4" />
+                  <path d="M661 480H804V490H661Z" fill="#a99e8a" />
+                  <path d="M656 492H810V505H656Z" fill="url(#marble)" />
+                </g>
+
+                <!-- central palace -->
+                <g class="palace-core" filter="url(#palaceShadow)">
+                  <path d="M274 540V328Q274 316 286 316H674Q686 316 686 328V540Z" fill="url(#frontMarble)" stroke="#fff9ec" stroke-width="2" />
+                  <path d="M253 320H707V342H253Z" fill="url(#marble)" />
+                  <path d="M247 342H713V356H247Z" fill="#b9ae9a" opacity=".75" />
+                  <path d="M274 356H686V369H274Z" fill="url(#marble)" />
+
+                  <!-- column capitals and shafts -->
+                  <g fill="url(#marble)" stroke="#b5ab99" stroke-width="1.5">
+                    <path d="M306 372H346V382H306Z"/><path d="M310 382H342V494H310Z"/><path d="M303 494H349V505H303Z" />
+                    <path d="M390 372H430V382H390Z"/><path d="M394 382H426V494H394Z"/><path d="M387 494H433V505H387Z" />
+                    <path d="M530 372H570V382H530Z"/><path d="M534 382H566V494H534Z"/><path d="M527 494H573V505H527Z" />
+                    <path d="M614 372H654V382H614Z"/><path d="M618 382H650V494H618Z"/><path d="M611 494H657V505H611Z" />
+                  </g>
+
+                  <!-- illuminated central entrance -->
+                  <ellipse cx="480" cy="505" rx="104" ry="90" fill="url(#doorGlow)" />
+                  <path d="M443 540V459Q443 414 480 414Q517 414 517 459V540Z" fill="#151510" stroke="url(#gold)" stroke-width="4" />
+                  <path d="M454 540V461Q454 428 480 428Q506 428 506 461V540Z" fill="#100f0d" />
+                  <path d="M466 480V540H494V480Q480 459 466 480Z" fill="url(#gold)" opacity=".32" />
+
+                  <!-- arched side windows -->
+                  <path d="M352 414Q352 391 369 391Q386 391 386 414V473H352Z" fill="#171714" stroke="#b99c68" stroke-width="3" />
+                  <path d="M574 414Q574 391 591 391Q608 391 608 414V473H574Z" fill="#171714" stroke="#b99c68" stroke-width="3" />
+                  <path d="M368 392V472M353 432H385M590 392V472M575 432H607" stroke="#c5a96e" stroke-width="1.5" opacity=".82" />
+
+                  <!-- engraved identity -->
+                  <path d="M408 368H552V402H408Z" fill="#f3eee2" stroke="#b3a58e" stroke-width="1.5" />
+                  <text x="480" y="383" fill="#171715" text-anchor="middle" font-family="Georgia,serif" font-size="15" letter-spacing="2.3" font-weight="700">ASRVONE</text>
+                  <text x="480" y="396" fill="#8f6a30" text-anchor="middle" font-family="Arial,sans-serif" font-size="5.5" letter-spacing="1.25">LEARN · CODE · GROW · SUCCEED</text>
+
+                  <!-- central dome -->
+                  <path d="M367 315C369 261 411 213 480 192C549 213 591 261 593 315Z" fill="url(#marble)" stroke="#fff9ed" stroke-width="3" />
+                  <path d="M397 289C412 246 445 222 480 210C515 222 548 246 563 289" fill="none" stroke="#b8ab93" stroke-width="2" opacity=".7" />
+                  <path d="M418 315C424 268 450 239 480 226C510 239 536 268 542 315" fill="none" stroke="#c0b49f" stroke-width="1.5" opacity=".75" />
+                  <path d="M362 310H598V322H362Z" fill="url(#marble)" />
+                  <path d="M464 193L480 161L496 193Z" fill="url(#gold)" />
+                  <path d="M480 163V142" stroke="#e9c874" stroke-width="3" />
+                  <circle cx="480" cy="139" r="4" fill="#f8e9b0" />
+                </g>
+
+                <!-- roofline pavilion details -->
+                <g class="palace-spires" fill="url(#marble)" stroke="#fff9eb" stroke-width="2">
+                  <path d="M276 316C277 284 290 264 303 255C316 264 329 284 330 316Z" />
+                  <path d="M630 316C631 284 644 264 657 255C670 264 683 284 684 316Z" />
+                  <path d="M298 257L303 239L308 257M652 257L657 239L662 257" fill="url(#gold)" />
+                </g>
+
+                <!-- broad ceremonial steps -->
+                <g class="palace-steps">
+                  <path d="M371 540H589L618 562H342Z" fill="url(#marble)" />
+                  <path d="M342 562H618L642 583H318Z" fill="#c3bcaf" />
+                  <path d="M318 583H642L670 604H290Z" fill="url(#frontMarble)" />
+                  <path d="M290 604H670L704 628H256Z" fill="#aaa294" />
+                  <path d="M256 628H704L738 650H222Z" fill="url(#marble)" />
+                  <path d="M341 562H619M318 583H642M290 604H670M256 628H704" stroke="#fff8e9" stroke-opacity=".7" stroke-width="2" />
+                </g>
+
+                <g class="palace-lanterns" fill="url(#gold)">
+                  <circle cx="179" cy="521" r="3"/><circle cx="780" cy="521" r="3"/>
+                  <path d="M176 522H182V543H176ZM777 522H783V543H777Z" opacity=".55" />
+                  <circle cx="480" cy="562" r="2.2" opacity=".8" />
+                </g>
+              </svg>
+            </div>
+            <div class="palace-caption"><span>01</span> A HOUSE FOR THE CURIOUS <i></i></div>
+          </div>
+        </div>
+        <div class="hero-bottom"><span>SCROLL TO BEGIN</span><span class="scroll-thread" aria-hidden="true"></span><span>EST. ON A BELIEF IN PEOPLE</span></div>
+      </section>
+
+      <section class="story section-paper" id="story" data-home-section="story" aria-labelledby="story-title">
+        <div class="section-kicker reveal"><span>01 / THE FIRST QUESTION</span><span class="kicker-rule"></span><span>WHY ASRVONE</span></div>
+        <div class="story-layout">
+          <div class="story-quote reveal">
+            <p class="eyebrow eyebrow-dark">A NOTE TO THE CURIOUS</p>
+            <h2 id="story-title">Somewhere between <em>who you are</em> and who you might become, there is a question worth following.</h2>
+            <span class="quote-mark" aria-hidden="true">“</span>
+          </div>
+          <div class="story-copy reveal">
+            <p class="lead-copy">ASRVOne is a learning and mentorship community for people who want their effort to mean something.</p>
+            <p>We bring clear foundations, deliberate practice and thoughtful guidance into the same room. Not to rush you toward a finish line—to help you become the kind of person who can keep building after you reach one.</p>
+            <a class="underlined-link" href="#academy">See what we believe <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="story-seal" aria-hidden="true"><span>ONE</span><i></i><span>VISION</span></div>
+      </section>
+
+      <section class="journey section-night" id="journey" data-home-section="journey" aria-labelledby="journey-title">
+        <div class="journey-scroll-space">
+          <div class="journey-sticky journey-stage" data-step="0">
+            <div class="journey-sky" aria-hidden="true"></div>
+            <div class="journey-inner">
+              <div class="section-kicker section-kicker-light"><span>02 / THE WAY FORWARD</span><span class="kicker-rule"></span><span>A STORY YOU CAN ENTER</span></div>
+              <div class="journey-center">
+                <div class="journey-copy" aria-live="polite">
+                  <p class="eyebrow eyebrow-gold">A LEARNING JOURNEY IN MOTION</p>
+                  <span class="journey-count" id="journey-count">01 <i>/ 06</i></span>
+                  <h2 id="journey-title">Discover<span>.</span></h2>
+                  <p id="journey-description">Follow the question you can’t quite leave alone.</p>
+                </div>
+                <div class="journey-orbit-scene" aria-hidden="true">
+                  <div class="journey-globe globe-back"></div>
+                  <div class="journey-orbit-line line-one"></div>
+                  <div class="journey-orbit-line line-two"></div>
+                  <div class="journey-gate"><span>ASRV</span><i>One</i></div>
+                  <span class="journey-node node-1"></span><span class="journey-node node-2"></span><span class="journey-node node-3"></span><span class="journey-node node-4"></span><span class="journey-node node-5"></span><span class="journey-node node-6"></span>
+                  <span class="journey-trail"></span>
+                </div>
+              </div>
+              <nav class="journey-rail" aria-label="Journey chapters">
+                <button type="button" class="journey-step is-current" data-step="0" aria-current="step"><span>01</span> Discover</button>
+                <button type="button" class="journey-step" data-step="1"><span>02</span> Learn</button>
+                <button type="button" class="journey-step" data-step="2"><span>03</span> Code</button>
+                <button type="button" class="journey-step" data-step="3"><span>04</span> Connect</button>
+                <button type="button" class="journey-step" data-step="4"><span>05</span> Grow</button>
+                <button type="button" class="journey-step" data-step="5"><span>06</span> Succeed</button>
+                <span class="journey-rail-fill" aria-hidden="true"></span>
+              </nav>
+              <p class="journey-scroll-note"><span></span> KEEP GOING — THE STORY CHANGES WITH YOU</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="academy section-cream" id="academy" data-home-section="academy" aria-labelledby="academy-title">
+        <div class="academy-orb" aria-hidden="true"></div>
+        <div class="section-kicker reveal"><span>03 / THE LEARNING HOUSE</span><span class="kicker-rule"></span><span>OUR APPROACH</span></div>
+        <div class="academy-heading reveal">
+          <div>
+            <p class="eyebrow eyebrow-dark">KNOWLEDGE, WITH ITS SLEEVES ROLLED UP</p>
+            <h2 id="academy-title">A good idea deserves<br />to be <em>made real.</em></h2>
+          </div>
+          <p class="academy-intro">We learn by asking why, putting the answer into practice, and making space for the next question. Every lesson is an invitation to think for yourself.</p>
+        </div>
+
+        <div class="learning-paths" role="tablist" aria-label="Explore the ASRVOne learning approach">
+          <button class="path-tab is-active" type="button" id="tab-clarity" role="tab" aria-selected="true" aria-controls="path-panel" data-path="clarity"><span>01</span> Find clarity <i>↗</i></button>
+          <button class="path-tab" type="button" id="tab-practice" role="tab" aria-selected="false" aria-controls="path-panel" data-path="practice"><span>02</span> Practice with purpose <i>↗</i></button>
+          <button class="path-tab" type="button" id="tab-guidance" role="tab" aria-selected="false" aria-controls="path-panel" data-path="guidance"><span>03</span> Grow together <i>↗</i></button>
+        </div>
+        <div class="path-panel reveal" id="path-panel" role="tabpanel" aria-labelledby="tab-clarity" tabindex="0">
+          <div class="path-number" id="path-number">01</div>
+          <div class="path-panel-copy"><p class="eyebrow eyebrow-gold" id="path-eyebrow">CONCEPTS WITH CLARITY</p><h3 id="path-title">Understand the why.<br /><em>Then write the how.</em></h3><p id="path-description">Strong foundations are built when a concept makes sense in your own words. We make room for questions before we ask you to memorise answers.</p></div>
+          <div class="path-drawing" aria-hidden="true"><div class="drawing-ring ring-a"></div><div class="drawing-ring ring-b"></div><span class="drawing-glyph">?</span><span class="drawing-star">✳</span></div>
+        </div>
+      </section>
+
+      <section class="program section-night" id="program" data-home-section="program" aria-labelledby="program-title">
+        <div class="program-stars" aria-hidden="true"></div>
+        <div class="section-kicker section-kicker-light reveal"><span>04 / A PATH TO PRACTICE</span><span class="kicker-rule"></span><span>PROGRAM SPOTLIGHT</span></div>
+        <div class="program-layout">
+          <div class="program-copy reveal">
+            <p class="eyebrow eyebrow-gold">JAVA + DSA · PLACEMENT PREPARATION</p>
+            <p class="program-overline">ONE TO</p>
+            <h2 id="program-title">LeetCode<span class="program-period">.</span></h2>
+            <p class="program-intro">A journey from Java foundations to the calm, clear thinking that a difficult problem asks of you.</p>
+            <p class="program-detail">Understand the idea. Trace the logic. Write the code. Then meet the problem again, a little stronger.</p>
+            <a class="button button-gold" href="#registration">Join the next chapter <span aria-hidden="true">↗</span></a>
+            <a class="program-practice-link" href="#practice">Try a first problem <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="program-art reveal" aria-hidden="true">
+            <div class="program-orbit orbit-large"></div><div class="program-orbit orbit-small"></div>
+            <div class="program-token token-java"><span>J</span></div>
+            <div class="program-token token-dsa"><span>{ }</span></div>
+            <div class="program-token token-leet"><span>↗</span></div>
+            <div class="program-core"><span>ONE</span><i>to</i><b>∞</b></div>
+            <div class="program-trajectory trajectory-one"></div><div class="program-trajectory trajectory-two"></div>
+            <p class="art-caption">FROM FIRST PRINCIPLES<br />TO PROBLEMS WORTH SOLVING</p>
+          </div>
+        </div>
+        <div class="curriculum" id="curriculum">
+          <div class="curriculum-heading reveal"><div><p class="eyebrow eyebrow-gold">THE WORK, IN ITS RIGHT ORDER</p><h3>A foundation that <em>holds.</em></h3></div><p>Open a chapter to see what the path makes room for.</p></div>
+          <div class="curriculum-list reveal">
+            <article class="curriculum-item">
+              <button class="curriculum-trigger" type="button" aria-expanded="true" aria-controls="chapter-java"><span class="curriculum-index">01</span><span class="curriculum-name">Java foundations</span><span class="curriculum-meta">Start with the language</span><span class="curriculum-plus" aria-hidden="true">−</span></button>
+              <div class="curriculum-content" id="chapter-java"><p>Programming basics, JDK / JRE / JVM, variables, data types, operators, input and the habits that make code easier to reason about.</p><div class="topic-list"><span>Java basics</span><span>Control flow</span><span>Methods</span></div></div>
+            </article>
+            <article class="curriculum-item">
+              <button class="curriculum-trigger" type="button" aria-expanded="false" aria-controls="chapter-structures"><span class="curriculum-index">02</span><span class="curriculum-name">Structures &amp; problem solving</span><span class="curriculum-meta">Give logic a shape</span><span class="curriculum-plus" aria-hidden="true">+</span></button>
+              <div class="curriculum-content" id="chapter-structures" hidden><p>Work with arrays and strings, practise searching and sorting, and learn to explain the choices behind a solution.</p><div class="topic-list"><span>Arrays</span><span>Strings</span><span>Searching &amp; sorting</span></div></div>
+            </article>
+            <article class="curriculum-item">
+              <button class="curriculum-trigger" type="button" aria-expanded="false" aria-controls="chapter-craft"><span class="curriculum-index">03</span><span class="curriculum-name">Object-oriented craft</span><span class="curriculum-meta">Make ideas reusable</span><span class="curriculum-plus" aria-hidden="true">+</span></button>
+              <div class="curriculum-content" id="chapter-craft" hidden><p>Use classes and objects to organise behaviour, then explore encapsulation, inheritance, polymorphism, abstraction and exceptions.</p><div class="topic-list"><span>Classes &amp; objects</span><span>OOP</span><span>Exceptions</span></div></div>
+            </article>
+            <article class="curriculum-item">
+              <button class="curriculum-trigger" type="button" aria-expanded="false" aria-controls="chapter-dsa"><span class="curriculum-index">04</span><span class="curriculum-name">DSA &amp; placement readiness</span><span class="curriculum-meta">Meet the harder question</span><span class="curriculum-plus" aria-hidden="true">+</span></button>
+              <div class="curriculum-content" id="chapter-dsa" hidden><p>Build problem-solving practice across data structures, algorithms and interview-style questions. Learn to describe your approach, not only your output.</p><div class="topic-list"><span>DSA practice</span><span>LeetCode</span><span>Interview thinking</span></div></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="workshop section-paper" id="practice" data-home-section="practice" aria-labelledby="practice-title">
+        <div class="section-kicker reveal"><span>05 / THE PRACTICE ROOM</span><span class="kicker-rule"></span><span>TRY A FIRST PROBLEM</span></div>
+        <div class="workshop-layout">
+          <div class="workshop-copy reveal">
+            <p class="eyebrow eyebrow-dark">A MOMENT WITH THE MATERIAL</p>
+            <h2 id="practice-title">An idea becomes yours when you <em>work it out.</em></h2>
+            <p>Take a breath, read the condition, and choose the line you trust. The explanation is waiting just below your answer.</p>
+            <button class="workshop-next" type="button" id="next-problem">Another thought <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="exercise-card reveal" aria-live="polite">
+            <div class="exercise-topline"><span id="exercise-number">JAVA · 01</span><span>NO RUSH</span></div>
+            <h3 id="exercise-question">A learner passes with 70 marks or more. Which condition includes 70?</h3>
+            <div class="exercise-options" id="exercise-options" role="group" aria-label="Choose a Java condition">
+              <button type="button" class="exercise-option" data-option="0"><code>marks &gt; 70</code><span>A</span></button>
+              <button type="button" class="exercise-option" data-option="1"><code>marks &gt;= 70</code><span>B</span></button>
+              <button type="button" class="exercise-option" data-option="2"><code>marks == 70</code><span>C</span></button>
+            </div>
+            <div class="exercise-feedback" id="exercise-feedback" aria-live="polite" hidden></div>
+            <div class="exercise-foot"><span id="exercise-hint">A boundary deserves a precise operator.</span><span class="exercise-diamond" aria-hidden="true">◇</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="values section-paper" id="values" data-home-section="values" aria-labelledby="values-title">
+        <div class="section-kicker reveal"><span>06 / FIVE LETTERS, ONE PROMISE</span><span class="kicker-rule"></span><span>THE ASRVONE VALUES</span></div>
+        <div class="values-heading reveal"><p class="eyebrow eyebrow-dark">A NAME WE TRY TO LIVE UP TO</p><h2 id="values-title">Five ways to<br /><em>keep becoming.</em></h2></div>
+        <div class="value-columns">
+          <article class="value-card reveal"><span class="value-letter">A</span><h3>Active</h3><p>Take initiative.<br />Make it happen.</p><i>01</i></article>
+          <article class="value-card reveal"><span class="value-letter">S</span><h3>Shine</h3><p>Stand out.<br />Inspire always.</p><i>02</i></article>
+          <article class="value-card reveal"><span class="value-letter">R</span><h3>Rise</h3><p>Keep growing.<br />Never stop.</p><i>03</i></article>
+          <article class="value-card reveal"><span class="value-letter">V</span><h3>Vision</h3><p>See beyond.<br />Create impact.</p><i>04</i></article>
+          <article class="value-card reveal"><span class="value-letter">O</span><h3>One</h3><p>One team.<br />One family.</p><i>05</i></article>
+        </div>
+        <p class="values-signoff reveal">ONE VISION <span>·</span> ONE SUCCESS <span>·</span> ONE FUTURE <em>·</em> INFINITE POSSIBILITIES</p>
+      </section>
+
+      <section class="services section-night" id="services" data-home-section="services" aria-labelledby="services-title">
+        <div class="section-kicker section-kicker-light reveal"><span>07 / THE ASRVONE ECOSYSTEM</span><span class="kicker-rule"></span><span>ONE VISION, MANY DOORS</span></div>
+        <div class="services-heading reveal"><p class="eyebrow eyebrow-gold">A PLACE TO LEARN, BUILD, AND FIND YOUR PEOPLE</p><h2 id="services-title">One vision.<br /><em>Many ways forward.</em></h2><p>Choose a door. Let your next question decide where it leads.</p></div>
+        <div class="service-grid" id="service-grid" aria-live="polite">
+          <a class="service-card" href="/learn" data-service-key="learning"><span class="service-index">01</span><span class="service-glyph" aria-hidden="true">L</span><h3>ASRVOne Learning</h3><p>Strong foundations, thoughtful guidance, and a path you can make your own.</p><span class="service-action">Explore learning <i aria-hidden="true">↗</i></span></a>
+          <a class="service-card" href="/#practice" data-service-key="codelab"><span class="service-index">02</span><span class="service-glyph" aria-hidden="true">{ }</span><h3>ASRVOne CodeLab</h3><p>Turn a quiet idea into code, then let the reasoning show its work.</p><span class="service-action">Open CodeLab <i aria-hidden="true">↗</i></span></a>
+          <a class="service-card" href="/community" data-service-key="community"><span class="service-index">03</span><span class="service-glyph" aria-hidden="true">◎</span><h3>ASRVOne Community</h3><p>Ask without hesitation. Learn without ego. Rise in good company.</p><span class="service-action">Enter the community <i aria-hidden="true">↗</i></span></a>
+          <a class="service-card" href="/live" data-service-key="live"><span class="service-index">04</span><span class="service-glyph" aria-hidden="true">◉</span><h3>ASRVOne Live</h3><p>Find your next session, the people in the room, and the meeting details.</p><span class="service-action">View sessions <i aria-hidden="true">↗</i></span></a>
+          <a class="service-card" href="/resources" data-service-key="resources"><span class="service-index">05</span><span class="service-glyph" aria-hidden="true">▤</span><h3>ASRVOne Resources</h3><p>Keep the notes, recordings, and useful details close to your learning.</p><span class="service-action">Open resources <i aria-hidden="true">↗</i></span></a>
+          <a class="service-card" href="/events" data-service-key="events"><span class="service-index">06</span><span class="service-glyph" aria-hidden="true">✳</span><h3>ASRVOne Events</h3><p>Make room for the conversations and moments that move us forward.</p><span class="service-action">Explore events <i aria-hidden="true">↗</i></span></a>
+          <a class="service-card service-card-astra" href="/astra" data-service-key="astra"><span class="service-index">07</span><span class="service-glyph" aria-hidden="true">A</span><h3>ASRVOne Astra</h3><p>A thoughtful guide for the questions that show up along the way.</p><span class="service-action">Talk with Astra <i aria-hidden="true">↗</i></span></a>
+        </div>
+      </section>
+
+      <section class="finder section-cream" id="finder" data-home-section="finder" aria-labelledby="finder-title">
+        <div class="section-kicker reveal"><span>08 / YOUR FIRST STEP</span><span class="kicker-rule"></span><span>A SMALL, USEFUL QUESTION</span></div>
+        <div class="finder-layout">
+          <div class="finder-copy reveal"><p class="eyebrow eyebrow-dark">WHERE ARE YOU IN THE STORY?</p><h2 id="finder-title">Every beginning<br />has its own <em>door.</em></h2><p>Choose the sentence that sounds most like you. We’ll point to a useful place to begin in the One to LeetCode path.</p></div>
+          <div class="finder-widget reveal">
+            <p class="finder-prompt">Right now, I am…</p>
+            <div class="finder-options" role="group" aria-label="Choose your current learning stage">
+              <button type="button" class="finder-option is-selected" data-choice="new">new to Java</button>
+              <button type="button" class="finder-option" data-choice="java">comfortable with Java basics</button>
+              <button type="button" class="finder-option" data-choice="dsa">ready to practise DSA</button>
+            </div>
+            <div class="finder-answer" aria-live="polite"><span class="answer-stamp">YOUR NEXT DOOR</span><p id="finder-answer">Begin with Java foundations: learn the language, then make control flow and methods feel like your own.</p><a href="#curriculum" class="underlined-link">Open the curriculum <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="founder section-paper" id="founder" data-home-section="founder" aria-labelledby="founder-title">
+        <div class="section-kicker reveal"><span>09 / THE PERSON BEHIND THE VISION</span><span class="kicker-rule"></span><span>FOUNDER &amp; MENTOR</span></div>
+        <div class="founder-layout">
+          <div class="founder-emblem reveal" aria-hidden="true"><div class="emblem-ring"><span>ASRV</span><b>One</b><i>✳</i><small>LEARN · CODE · GROW · SUCCEED</small></div><span class="emblem-shadow"></span></div>
+          <div class="founder-copy reveal">
+            <p class="eyebrow eyebrow-dark">A CONVICTION, MADE INTO A COMMUNITY</p>
+            <h2 id="founder-title">I G Siva Shankar</h2>
+            <p class="founder-role">Founder &amp; Mentor, ASRVOne</p>
+            <p class="founder-thought">A syllabus can show what to study. Good mentorship helps you see what you might become.</p>
+            <p>ASRVOne grew from a belief that technical education should reach beyond the syllabus. Shankar’s approach brings practical learning, disciplined practice and guidance into a space where students can improve without fear of failure.</p>
+            <a class="underlined-link" href="#program">Explore the learning philosophy <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="registration section-cream" id="registration" data-home-section="registration" aria-labelledby="registration-title">
+        <div class="section-kicker reveal"><span>10 / YOUR NEXT CHAPTER</span><span class="kicker-rule"></span><span>REGISTRATION</span></div>
+        <div class="registration-layout">
+          <div class="registration-copy reveal">
+            <p class="eyebrow eyebrow-dark">TELL US WHAT YOU’RE READY TO BUILD</p>
+            <h2 id="registration-title">Every journey begins with <em>your name.</em></h2>
+            <p>Share a little about where you are and what you hope to learn. We’ll read your note with care.</p>
+            <div class="registration-promise"><span class="promise-mark">✳</span><p><strong>One to LeetCode</strong><br />Java foundations, DSA practice, and placement preparation.</p></div>
+            <p class="registration-privacy">Your registration is sent securely to ASRVOne through Formspree. Share only details relevant to your learning enquiry.</p>
+          </div>
+          <div class="registration-form-wrap reveal">
+            <form id="registration-form" class="registration-form" action="/api/applications" method="POST" accept-charset="UTF-8">
+              <input type="hidden" name="_subject" value="ASRVOne programme registration" />
+              <div class="form-honey" aria-hidden="true"><label for="registration-website">Leave this field blank</label><input id="registration-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
+              <div class="form-grid">
+                <label class="form-field form-wide" for="registration-name"><span>FULL NAME <i>*</i></span><input id="registration-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="100" placeholder="The name we should know you by" /></label>
+                <label class="form-field" for="registration-email"><span>EMAIL <i>*</i></span><input id="registration-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com" /></label>
+                <label class="form-field" for="registration-phone"><span>PHONE</span><input id="registration-phone" name="phone" type="tel" autocomplete="tel" maxlength="30" placeholder="With country code, if needed" /></label>
+                <label class="form-field form-wide" for="registration-college"><span>COLLEGE / INSTITUTION</span><input id="registration-college" name="college" type="text" autocomplete="organization" maxlength="140" placeholder="Where are you learning today?" /></label>
+                <label class="form-field" for="registration-year"><span>YEAR OF STUDY</span><select id="registration-year" name="year"><option value="">Choose a year</option><option>1st year</option><option>2nd year</option><option>3rd year</option><option>4th year</option><option>Graduate</option><option>Other</option></select></label>
+                <label class="form-field" for="registration-branch"><span>BRANCH</span><input id="registration-branch" name="branch" type="text" maxlength="100" placeholder="e.g. Computer Science" /></label>
+                <label class="form-field form-wide" for="registration-program"><span>PROGRAMME OF INTEREST <i>*</i></span><select id="registration-program" name="program" required><option value="Java + DSA Placement Batch — One to LeetCode">Java + DSA Placement Batch — One to LeetCode</option><option value="Exploring other ASRVOne learning programmes">I’m exploring other ASRVOne learning programmes</option></select></label>
+                <label class="form-field form-wide" for="registration-batch"><span>BATCH</span><select id="registration-batch" name="batch"><option value="Next available batch">Tell me about the next available batch</option><option value="Not sure yet">I’m not sure yet</option></select></label>
+                <label class="form-field form-wide" for="registration-skills"><span>WHAT HAVE YOU EXPLORED SO FAR?</span><input id="registration-skills" name="skills" type="text" maxlength="300" placeholder="Languages, projects, or a first curious step" /></label>
+                <label class="form-field form-wide" for="registration-experience"><span>PROJECT OR WORK EXPERIENCE</span><input id="registration-experience" name="experience" type="text" maxlength="1000" placeholder="A project, internship, or learning milestone" /></label>
+                <label class="form-field form-wide" for="registration-message"><span>A NOTE FOR YOUR MENTOR</span><textarea id="registration-message" name="message" rows="3" maxlength="1500" placeholder="What would you love to learn next?"></textarea></label>
+              </div>
+              <div class="registration-submit-row"><button class="button button-gold registration-submit" id="registration-submit" type="submit">Send my registration <span aria-hidden="true">↗</span></button><span class="form-required-note">* Required fields</span></div>
+              <div class="form-status" id="registration-status" role="status" aria-live="polite"></div>
+            </form>
+            <div class="registration-success" id="registration-success" tabindex="-1" hidden>
+              <span class="success-star" aria-hidden="true">✳</span>
+              <p class="eyebrow eyebrow-gold">YOUR NOTE FOUND ITS WAY HERE</p>
+              <h3>You’re one step closer to what’s next.</h3>
+              <p id="registration-success-message">Your application reached ASRVOne. Thank you for trusting us with the beginning of your story.</p>
+              <p class="application-reference">APPLICATION REFERENCE <strong id="application-reference"></strong></p>
+              <p class="application-delivery-note" id="registration-delivery-note"></p>
+              <button class="text-link success-reset" id="registration-again" type="button">Send another registration <span aria-hidden="true">↗</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing section-night" id="begin" data-home-section="closing" aria-labelledby="closing-title">
+        <div class="closing-rings" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="closing-content reveal">
+          <p class="eyebrow eyebrow-gold">WHEN YOU ARE READY, THE DOOR IS HERE</p>
+          <h2 id="closing-title">The next line<br />is <em>yours.</em></h2>
+          <p>Bring the question you can’t stop thinking about. We’ll begin there.</p>
+          <a class="button button-light" href="#registration">Register your interest <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="closing-footer">
+          <a href="#top" class="footer-wordmark" aria-label="ASRVOne, back to top"><strong>ASRV</strong><em>One</em></a>
+          <p>ACTIVE <span>•</span> SHINE <span>•</span> RISE <span>•</span> VISION <span>•</span> ONE</p>
+          <a href="#top" class="back-top">BACK TO THE BEGINNING <span aria-hidden="true">↑</span></a>
+        </div>
+      </section>
+
+      <section class="brand-endcap section-night" aria-label="ASRVOne logo">
+        <img src="/legacy/assets/asrvone-logo-reference.png" alt="ASRVOne with Shankar signature" />
+      </section>
+    </main>
+  </body>
+</html>
