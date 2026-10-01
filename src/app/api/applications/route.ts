@@ -7,6 +7,7 @@ import { registrationSchema } from "@/lib/validation";
 import { sendTransactionalEmail } from "@/lib/email";
 
 export const runtime = "nodejs";
+const DEFAULT_FORMSPREE_ENDPOINT = "https://formspree.io/f/xkjgeklk";
 
 async function requestValues(request: Request): Promise<unknown> {
   const contentType = request.headers.get("content-type") || "";
@@ -23,9 +24,8 @@ async function requestValues(request: Request): Promise<unknown> {
   return values;
 }
 
-function formspreeEndpoint(): string | null {
-  const value = process.env.FORMSPREE_ENDPOINT;
-  if (!value) return null;
+function formspreeEndpoint(): string {
+  const value = process.env.FORMSPREE_ENDPOINT?.trim() || DEFAULT_FORMSPREE_ENDPOINT;
   let endpoint: URL;
   try {
     endpoint = new URL(value);
@@ -75,37 +75,42 @@ export async function POST(request: Request) {
     });
 
     let formspreeAccepted = false;
-    let formspreeStatus = "not_configured";
     const endpoint = formspreeEndpoint();
-    if (endpoint) {
-      try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: { Accept: "application/json", "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: input.name,
-            email: input.email,
-            phone: input.phone,
-            college: input.college,
-            year: input.year,
-            branch: input.branch,
-            skills: input.skills,
-            experience: input.experience,
-            program: input.program,
-            batch: input.batch,
-            message: input.message,
-            application_id: application.id,
-            _subject: `ASRVOne registration ${application.id.slice(0, 8)}`,
-          }),
-          signal: AbortSignal.timeout(8000),
-        });
-        formspreeAccepted = response.ok;
-        formspreeStatus = response.ok ? "accepted" : `http_${response.status}`;
-        if (response.ok) await db.application.update({ where: { id: application.id }, data: { formspreeSentAt: new Date() } });
-      } catch (error) {
-        formspreeStatus = error instanceof Error && error.name === "TimeoutError" ? "timeout" : "unavailable";
-        console.error("Formspree forwarding failed for application", application.id, error);
+    try {
+      const formspreeData = new FormData();
+      const fields = {
+        name: input.name,
+        email: input.email,
+        _replyto: input.email,
+        phone: input.phone,
+        college: input.college,
+        year: input.year,
+        branch: input.branch,
+        skills: input.skills,
+        experience: input.experience,
+        program: input.program,
+        batch: input.batch,
+        message: input.message,
+        application_id: application.id,
+        _subject: `ASRVOne registration ${application.id.slice(0, 8)}`,
+      };
+      Object.entries(fields).forEach(([key, value]) => formspreeData.set(key, value));
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formspreeData,
+        signal: AbortSignal.timeout(8000),
+      });
+      formspreeAccepted = response.ok;
+      if (response.ok) {
+        await db.application.update({ where: { id: application.id }, data: { formspreeSentAt: new Date() } });
+      } else {
+        const detail = await response.text().catch(() => "");
+        console.error("Formspree rejected application", application.id, response.status, detail.slice(0, 500));
       }
+    } catch (error) {
+      console.error("Formspree forwarding failed for application", application.id, error);
     }
 
     const adminRecipient = process.env.ADMIN_NOTIFICATION_EMAIL;
